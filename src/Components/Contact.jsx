@@ -13,14 +13,16 @@ const Contact = () => {
   const onSubmit = async (e) => {
     try {
       const response = await axios.post(
-        "https://ac-api-5hpk.onrender.com/post",
+        "https://ac-api-5hpk.onrender.com/api/post",
         e
       );
-      console.log(response.data); // handle success
+
+      toast.success("Your Query submitted successfully!");
+      // handle success
     } catch (error) {
       console.error("Error:", error); // handle error
+      toast.error()("Error:", error); // handle error
     }
-    toast.success("Form submitted successfully!");
 
     navi("/");
   };
